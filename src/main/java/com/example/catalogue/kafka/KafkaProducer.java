@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Component;
 
-import com.example.catalogue.repository.Product;
+import com.example.catalogue.repository.ProductEntity;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -19,7 +19,7 @@ public class KafkaProducer {
 
     ObjectMapper mapper = new ObjectMapper();
 
-    public void sendProduct(Product product) throws JsonProcessingException {
+    public void sendProduct(ProductEntity product) throws JsonProcessingException {
         kafkaTemplate.send("created", mapper.writeValueAsString(product));
     };
 
