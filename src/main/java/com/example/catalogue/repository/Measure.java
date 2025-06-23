@@ -1,4 +1,4 @@
-package com.example.catalogue.service;
+package com.example.catalogue.repository;
 
 public record Measure (
     String measure,

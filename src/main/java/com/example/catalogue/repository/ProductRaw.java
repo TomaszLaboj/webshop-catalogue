@@ -1,10 +1,6 @@
-package com.example.catalogue.service;
+package com.example.catalogue.repository;
 
 import java.util.List;
-
-import org.springframework.stereotype.Service;
-
-import com.example.catalogue.repository.CatalogueRepository;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

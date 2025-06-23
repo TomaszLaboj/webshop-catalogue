@@ -10,10 +10,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.catalogue.kafka.KafkaProducer;
-import com.example.catalogue.repository.CatalogueRepository;
 import com.example.catalogue.repository.ProductEntity;
 import com.example.catalogue.service.CatalogueService;
-import com.example.catalogue.service.ProductRaw;
+import com.example.catalogue.repository.ProductRaw;
 
 @RestController
 public class ProductController {

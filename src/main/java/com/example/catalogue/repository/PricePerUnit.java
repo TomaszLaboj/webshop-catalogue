@@ -1,4 +1,4 @@
-package com.example.catalogue.service;
+package com.example.catalogue.repository;
 
 import lombok.Getter;
 import lombok.Setter;

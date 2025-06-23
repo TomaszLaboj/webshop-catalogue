@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.catalogue.repository.CatalogueRepository;
-import com.example.catalogue.repository.ProductEntity;
+import com.example.catalogue.repository.ProductRaw;
 
 @Service
 public class CatalogueService {
@@ -19,32 +19,11 @@ public class CatalogueService {
     }
 
     List<ProductRaw> getProducts(String name) {
-        List<ProductRaw> products = catalogueRepository.findByName(name)
+        List<ProductRaw> products = catalogueRepository.findAll()
                 .stream()
-                .map(product -> mapProductEntityToProductRaw(product))
+                .map(product -> product.toRaw())
                 .collect(Collectors.toList());
         return products;
     };
 
-    ProductRaw mapProductEntityToProductRaw(ProductEntity productEntity) {
-        return new ProductRaw(
-                productEntity.getId(),
-                productEntity.getName(),
-                productEntity.getImage(),
-                productEntity.getCategoryPath(),
-                new Measure(
-                        productEntity.getMeasure(),
-                        productEntity.getMeasureCount(),
-                        productEntity.getUnitOfMeasure()
-                ),
-                new ShelfLife(
-                        productEntity.getShelfLifeCount(),
-                        productEntity.getShelfLifeUnit()
-                ),
-                productEntity.getPrice(),
-                productEntity.getRating(),
-                productEntity.getDietaryIcons(),
-                productEntity.getStockCount()
-        );
-    }
 }

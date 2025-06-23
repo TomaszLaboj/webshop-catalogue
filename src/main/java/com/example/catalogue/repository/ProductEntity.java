@@ -16,7 +16,7 @@ import lombok.Setter;
 public class ProductEntity implements Serializable {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.AUTO)
     Long id;
 
     String name;
@@ -32,4 +32,26 @@ public class ProductEntity implements Serializable {
     float rating;
     List<String> dietaryIcons;
     int stockCount;
+
+    public ProductRaw toRaw() {
+        return new ProductRaw(
+                this.getId(),
+                this.getName(),
+                this.getImage(),
+                this.getCategoryPath(),
+                new Measure(
+                        this.getMeasure(),
+                        this.getMeasureCount(),
+                        this.getUnitOfMeasure()
+                ),
+                new ShelfLife(
+                        this.getShelfLifeCount(),
+                        this.getShelfLifeUnit()
+                ),
+                this.getPrice(),
+                this.getRating(),
+                this.getDietaryIcons(),
+                this.getStockCount()
+        );
+    }
 }
