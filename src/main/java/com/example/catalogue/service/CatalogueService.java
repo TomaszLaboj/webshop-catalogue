@@ -19,18 +19,19 @@ public class CatalogueService {
         this.catalogueRepository = catalogueRepository;
     }
 
-    ProductRaw getProductById(Long id) {
-        return catalogueRepository.findById(id).isPresent() ? catalogueRepository.findById(id).get().toRaw() : null;
+    ProductRaw getProductById(long id) {
+        return catalogueRepository.findById(id).toRaw();
     };
 
-    List<ProductRaw> getProductByName(String name) {
+    public List<ProductRaw> getProductByName(String name) {
         List<ProductRaw> products = catalogueRepository.findProductsByCategory(name)
                 .stream()
                 .map(product -> product.toRaw())
                 .collect(Collectors.toList());
         return products;
     }
-    List<ProductRaw> getAllProducts() {
+
+    public List<ProductRaw> getAllProducts() {
         List<ProductRaw> products = catalogueRepository.findAll()
                 .stream()
                 .map(product -> product.toRaw())
@@ -38,7 +39,7 @@ public class CatalogueService {
         return products;
     };
 
-    List<ProductRaw> getProductsByCategory(String category) {
+    public List<ProductRaw> getProductsByCategory(String category) {
         List<ProductRaw> products = catalogueRepository.findProductsByCategory(category)
                 .stream()
                 .map(product -> product.toRaw())

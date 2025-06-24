@@ -22,13 +22,16 @@ public class ProductEntity implements Serializable {
     String name;
     String image;
     String categoryPath;
-    String measure;
+
+    String measureType;
     int measureCount;
     String unitOfMeasure;
-    String shelfLife;
+
     int shelfLifeCount;
     String shelfLifeUnit;
+
     float price;
+
     float rating;
     List<String> dietaryIcons;
     int stockCount;
@@ -40,7 +43,7 @@ public class ProductEntity implements Serializable {
                 this.getImage(),
                 this.getCategoryPath(),
                 new Measure(
-                        this.getMeasure(),
+                        this.getMeasureType(),
                         this.getMeasureCount(),
                         this.getUnitOfMeasure()
                 ),

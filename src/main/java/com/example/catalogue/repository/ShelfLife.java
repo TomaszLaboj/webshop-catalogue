@@ -1,6 +1,6 @@
 package com.example.catalogue.repository;
 
-record ShelfLife (
+public record ShelfLife (
         int shelfLifeCount,
         String shelfLifeUnit
 ){};

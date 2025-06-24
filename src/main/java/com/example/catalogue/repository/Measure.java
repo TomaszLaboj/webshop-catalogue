@@ -1,7 +1,7 @@
 package com.example.catalogue.repository;
 
 public record Measure (
-    String measure,
+    String measureType,
     int measureCount,
     String unitOfMeasure
 ) {};
