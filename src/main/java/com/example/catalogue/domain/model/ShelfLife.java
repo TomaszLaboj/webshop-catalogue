@@ -1,4 +1,4 @@
-package com.example.catalogue.repository;
+package com.example.catalogue.domain.model;
 
 public record ShelfLife (
         int shelfLifeCount,

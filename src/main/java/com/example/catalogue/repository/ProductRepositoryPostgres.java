@@ -1,0 +1,51 @@
+package com.example.catalogue.repository;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.example.catalogue.domain.ProductRepository;
+import com.example.catalogue.domain.model.ProductEnriched;
+import com.example.catalogue.domain.model.ProductRaw;
+import com.example.catalogue.repository.model.ProductEntity;
+
+@Repository
+public class ProductRepositoryPostgres implements ProductRepository {
+    private final JpaProductRepository jpaRepository;
+
+    @Autowired
+    public ProductRepositoryPostgres(JpaProductRepository jpaRepository) {
+        this.jpaRepository = jpaRepository;
+    }
+
+    public ProductEnriched findById(long id) {
+        ProductRaw productRaw = jpaRepository.findById(id).toRaw();
+        return new ProductEnriched(productRaw);
+    };
+
+    public List<ProductEnriched> findByName(String name) {
+        return jpaRepository.findByName(name)
+                .stream()
+                .map(ProductEntity::toRaw)
+                .map(productRaw -> new ProductEnriched(productRaw))
+                .collect(Collectors.toList());
+    }
+
+    public List<ProductEnriched> findProductsByCategory(String category) {
+        return jpaRepository.findProductsByCategory(category)
+                .stream()
+                .map(ProductEntity::toRaw)
+                .map(productRaw -> new ProductEnriched(productRaw))
+                .collect(Collectors.toList());
+    }
+
+    public List<ProductEnriched> findAll() {
+        return jpaRepository.findAll()
+                .stream()
+                .map(ProductEntity::toRaw)
+                .map(productRaw -> new ProductEnriched(productRaw))
+                .collect(Collectors.toList());
+    };
+}

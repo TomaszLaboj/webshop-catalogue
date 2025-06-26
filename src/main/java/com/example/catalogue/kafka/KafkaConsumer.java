@@ -4,15 +4,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 
-import com.example.catalogue.repository.CatalogueRepository;
+import com.example.catalogue.repository.JpaProductRepository;
 
 @Component
 public class KafkaConsumer {
 
-    CatalogueRepository catalogueRepository;
+    JpaProductRepository catalogueRepository;
 
     @Autowired
-    public KafkaConsumer(CatalogueRepository catalogueRepository) {
+    public KafkaConsumer(JpaProductRepository catalogueRepository) {
         this.catalogueRepository = catalogueRepository;
     }
 

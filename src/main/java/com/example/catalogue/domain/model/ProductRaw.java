@@ -1,4 +1,4 @@
-package com.example.catalogue.repository;
+package com.example.catalogue.domain.model;
 
 import java.util.List;
 
@@ -24,4 +24,5 @@ public class ProductRaw {
     float rating;
     List<String> dietaryIcons;
     int stockCount;
+
 }

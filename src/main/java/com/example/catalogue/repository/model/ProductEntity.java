@@ -1,7 +1,11 @@
-package com.example.catalogue.repository;
+package com.example.catalogue.repository.model;
 
 import java.io.Serializable;
 import java.util.List;
+
+import com.example.catalogue.domain.model.Measure;
+import com.example.catalogue.domain.model.ProductRaw;
+import com.example.catalogue.domain.model.ShelfLife;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

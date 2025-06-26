@@ -1,4 +1,4 @@
-package com.example.catalogue.repository;
+package com.example.catalogue.domain.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
