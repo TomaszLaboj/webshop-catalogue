@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.catalogue.domain.model.ProductEnriched;
+import com.example.catalogue.domain.model.ProductRaw;
 import com.example.catalogue.repository.ProductRepositoryPostgres;
 
 @Service
@@ -32,4 +33,8 @@ public class CatalogueService {
     public List<ProductEnriched> getAllProducts() {
         return productRepositoryPostgres.findAll();
     };
+
+    public ProductRaw save(ProductRaw productRaw) {
+
+    }
 }

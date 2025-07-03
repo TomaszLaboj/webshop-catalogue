@@ -40,6 +40,23 @@ public class ProductEntity implements Serializable {
     List<String> dietaryIcons;
     int stockCount;
 
+    public ProductEntity(ProductRaw productRaw) {
+        this.name = productRaw.getName();
+        this.image = productRaw.getImage();
+        this.categoryPath = productRaw.getCategoryPath();
+        this.measureType = productRaw.getMeasure().measureType();
+        this.measureCount = productRaw.getMeasure().measureCount();
+        this.unitOfMeasure = productRaw.getMeasure().unitOfMeasure();
+        this.shelfLifeCount = productRaw.getShelfLife().shelfLifeCount();
+        this.shelfLifeUnit = productRaw.getShelfLife().shelfLifeUnit();
+        this.price = productRaw.getPrice();
+        this.rating = productRaw.getRating();
+        this.dietaryIcons = productRaw.getDietaryIcons();
+        this.stockCount = productRaw.getStockCount();
+    }
+
+    public ProductEntity() {};
+
     public ProductRaw toRaw() {
         return new ProductRaw(
                 this.getId(),
@@ -61,4 +78,5 @@ public class ProductEntity implements Serializable {
                 this.getStockCount()
         );
     }
+
 }

@@ -48,4 +48,10 @@ public class ProductRepositoryPostgres implements ProductRepository {
                 .map(productRaw -> new ProductEnriched(productRaw))
                 .collect(Collectors.toList());
     };
+
+    public ProductRaw save(ProductRaw productRaw) {
+        ProductEntity productEntity = new ProductEntity(productRaw);
+        ProductEntity createdProduct = jpaRepository.save(productEntity);
+        return createdProduct.toRaw();
+    }
 }

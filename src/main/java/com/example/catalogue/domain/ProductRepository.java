@@ -13,4 +13,5 @@ public interface ProductRepository {
     List<ProductEnriched> findByName(String name);
     List<ProductEnriched> findProductsByCategory(String category);
     List<ProductEnriched> findAll();
+    ProductRaw save(ProductRaw productRaw);
 }
