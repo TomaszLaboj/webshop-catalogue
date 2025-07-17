@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.catalogue.controller.model.ProductDto;
 import com.example.catalogue.controller.model.ProductFlatDto;
 import com.example.catalogue.domain.model.ProductEnriched;
-import com.example.catalogue.kafka.KafkaProducer;
 import com.example.catalogue.domain.CatalogueService;
 import com.example.catalogue.domain.model.ProductRaw;
 
@@ -23,12 +22,9 @@ public class ProductController {
 
     private final CatalogueService catalogueService;
 
-    KafkaProducer kafkaProducer;
-
     @Autowired
-    public ProductController(CatalogueService catalogueService, KafkaProducer kafkaProducer) {
+    public ProductController(CatalogueService catalogueService) {
         this.catalogueService = catalogueService;
-        this.kafkaProducer = kafkaProducer;
     }
 
     @GetMapping("/products/{id}")
@@ -62,17 +58,6 @@ public class ProductController {
                 .map(this::toProductDto)
                 .collect(Collectors.toList());
     };
-
-    @PostMapping("/products/")
-    public ProductFlatDto createProduct(@RequestBody ProductFlatDto productFlatDto) {
-        ProductRaw productRaw = new ProductRaw()
-        return productRaw;
-    };
-
-    @PutMapping("products/{id}")
-    public ProductEnriched createProductEnriched(@PathVariable Long id,) {
-        //increase stock number of products with the id
-    }
 
     public ProductDto toProductDto(ProductEnriched product) {
         return ProductDto.fromDomainModel(product);
