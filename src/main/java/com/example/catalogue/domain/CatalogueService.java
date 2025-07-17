@@ -35,6 +35,11 @@ public class CatalogueService {
     };
 
     public ProductRaw save(ProductRaw productRaw) {
+        return productRepositoryPostgres.save(productRaw).toRaw();
+    }
 
+    public ProductRaw createProduct(ProductRaw productRaw) {
+        productRepositoryPostgres.save(productRaw);
+        return  productRaw;
     }
 }
