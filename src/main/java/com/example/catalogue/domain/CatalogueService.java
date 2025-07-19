@@ -1,10 +1,12 @@
 package com.example.catalogue.domain;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.catalogue.controller.model.ProductPrice;
 import com.example.catalogue.domain.model.ProductEnriched;
 import com.example.catalogue.domain.model.ProductRaw;
 import com.example.catalogue.repository.ProductRepositoryPostgres;
@@ -19,7 +21,7 @@ public class CatalogueService {
     }
 
     public ProductEnriched getProductById(long id) {
-        return productRepositoryPostgres.findById(id);
+        return new ProductEnriched(productRepositoryPostgres.findById(id));
     };
 
     public List<ProductEnriched> getProductByName(String name) {
@@ -42,4 +44,16 @@ public class CatalogueService {
         productRepositoryPostgres.save(productRaw);
         return  productRaw;
     }
+
+    public List<ProductRaw> updatePrices(List<ProductPrice> productPrices) {
+        List<ProductRaw> productRaws = productPrices.stream()
+                .map((productPrice) -> updatePrice(productRepositoryPostgres.findById(productPrice.getId()))
+                )
+                .collect(Collectors.toList());
+        return productRaws;
+    }
+
+    public ProductRaw updatePrice(ProductRaw productRaw) {
+        return productRepositoryPostgres.save(productRaw).toRaw();
+    };
 }

@@ -12,5 +12,4 @@ public interface JpaProductRepository extends CrudRepository<ProductEntity, Long
     List<ProductEntity> findByName(String name);
     List<ProductEntity> findProductsByCategory(String category);
     List<ProductEntity> findAll();
-
 }

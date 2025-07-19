@@ -20,9 +20,9 @@ public class ProductRepositoryPostgres implements ProductRepository {
         this.jpaRepository = jpaRepository;
     }
 
-    public ProductEnriched findById(long id) {
-        ProductRaw productRaw = jpaRepository.findById(id).toRaw();
-        return new ProductEnriched(productRaw);
+    public ProductRaw findById(long id) {
+        return jpaRepository.findById(id).toRaw();
+
     };
 
     public List<ProductEnriched> findByName(String name) {
@@ -54,4 +54,5 @@ public class ProductRepositoryPostgres implements ProductRepository {
         ProductEntity createdProduct = jpaRepository.save(productEntity);
         return createdProduct;
     }
+
 }

@@ -9,7 +9,7 @@ import com.example.catalogue.repository.model.ProductEntity;
 
 public interface ProductRepository {
 
-    ProductEnriched findById(long id);
+    ProductRaw findById(long id);
     List<ProductEnriched> findByName(String name);
     List<ProductEnriched> findProductsByCategory(String category);
     List<ProductEnriched> findAll();
