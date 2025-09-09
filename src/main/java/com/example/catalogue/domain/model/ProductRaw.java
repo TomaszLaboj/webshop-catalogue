@@ -16,7 +16,7 @@ public class ProductRaw {
 
     String name;
     String image;
-    String categoryPath;
+    String category;
 
     Measure measure;
     ShelfLife shelfLife;
@@ -33,7 +33,7 @@ public class ProductRaw {
         this.id = productFlatDto.getId();
         this.name = productFlatDto.getName();
         this.image = productFlatDto.getImage();
-        this.categoryPath = productFlatDto.getCategoryPath();
+        this.category = productFlatDto.getCategory();
         this.measure = new Measure(productFlatDto.getTypeOfMeasure(), productFlatDto.getMeasureCount(),productFlatDto.getUnitOfMeasure());
         this.shelfLife = new ShelfLife(productFlatDto.getShelfLifeCount(), productFlatDto.getShelfLifeUnitOfMeasure());
         this.price = productFlatDto.getPrice();

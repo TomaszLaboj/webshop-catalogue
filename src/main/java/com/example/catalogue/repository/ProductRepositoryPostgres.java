@@ -1,6 +1,7 @@
 package com.example.catalogue.repository;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,6 +54,17 @@ public class ProductRepositoryPostgres implements ProductRepository {
         ProductEntity productEntity = new ProductEntity(productRaw);
         ProductEntity createdProduct = jpaRepository.save(productEntity);
         return createdProduct;
+    }
+
+    public ProductRaw updateStock(Long id, int stockQuantity) {
+        Optional<ProductEntity> productEntity = jpaRepository.findById(id);
+        ProductEntity product;
+        if (productEntity.isPresent()) {
+            product = productEntity.get();
+            product.setStockCount(product.getStockCount() + stockQuantity);
+            return jpaRepository.save(product).toRaw();
+        }
+        return null;
     }
 
 }

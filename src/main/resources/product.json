@@ -2,7 +2,7 @@
 {
 "name": "White Bread",
 "image": "http.url",
-"path": "bakery/bread/white_bread",
+"category": "bakery/bread/white_bread",
 "measure": {
   "typeOfMeasure": "weight",
   "count": 800,

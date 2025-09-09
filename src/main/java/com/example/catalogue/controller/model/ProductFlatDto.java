@@ -11,7 +11,7 @@ public class ProductFlatDto {
     private Long id;
     private String name;
     private String image;
-    private String categoryPath;
+    private String category;
     private String typeOfMeasure;
     private int measureCount;
     private String unitOfMeasure;

@@ -25,7 +25,7 @@ public class ProductEntity implements Serializable {
 
     String name;
     String image;
-    String categoryPath;
+    String category;
 
     String measureType;
     int measureCount;
@@ -38,12 +38,12 @@ public class ProductEntity implements Serializable {
 
     float rating;
     List<String> dietaryIcons;
-    int stockCount;
+    public int stockCount;
 
     public ProductEntity(ProductRaw productRaw) {
         this.name = productRaw.getName();
         this.image = productRaw.getImage();
-        this.categoryPath = productRaw.getCategoryPath();
+        this.category = productRaw.getCategory();
         this.measureType = productRaw.getMeasure().measureType();
         this.measureCount = productRaw.getMeasure().measureCount();
         this.unitOfMeasure = productRaw.getMeasure().unitOfMeasure();
@@ -62,7 +62,7 @@ public class ProductEntity implements Serializable {
                 this.getId(),
                 this.getName(),
                 this.getImage(),
-                this.getCategoryPath(),
+                this.getCategory(),
                 new Measure(
                         this.getMeasureType(),
                         this.getMeasureCount(),

@@ -14,7 +14,7 @@ public class ProductEnriched {
 
     String name;
     String image;
-    String categoryPath;
+    String category;
 
     Measure measure;
     ShelfLife shelfLife;
@@ -31,7 +31,7 @@ public class ProductEnriched {
                id = product.id;
                name = product.name;
                image =  product.image;
-               categoryPath = product.categoryPath;
+               category = product.category;
                measure = product.measure;
                shelfLife = product.shelfLife;
                price = product.price;

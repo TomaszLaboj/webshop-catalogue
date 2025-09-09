@@ -14,4 +14,5 @@ public interface ProductRepository {
     List<ProductEnriched> findProductsByCategory(String category);
     List<ProductEnriched> findAll();
     ProductEntity save(ProductRaw productRaw);
+    ProductRaw updateStock(Long id, int stockQuantity);
 }

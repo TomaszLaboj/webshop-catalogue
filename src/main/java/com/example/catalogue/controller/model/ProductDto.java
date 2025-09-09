@@ -11,7 +11,7 @@ public record ProductDto(
         long id,
         String name,
         String image,
-        String categoryPath,
+        String category,
 
         Measure measure,
         ShelfLife shelfLife,
@@ -27,7 +27,7 @@ public record ProductDto(
                 product.getId(),
                 product.getName(),
                 product.getImage(),
-                product.getCategoryPath(),
+                product.getCategory(),
                 new Measure(
                         product.getMeasure().measureType(),
                         product.getMeasure().measureCount(),
