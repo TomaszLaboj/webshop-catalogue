@@ -17,6 +17,7 @@ public record ProductDto(
         ShelfLife shelfLife,
 
         float price,
+        int stockAtThisPrice,
         PricePerUnit pricePerUnit,
         float rating,
         List<String>dietaryIcons,
@@ -38,6 +39,7 @@ public record ProductDto(
                         product.getShelfLife().shelfLifeUnit()
                 ),
                 product.getPrice(),
+                product.getStockAtThisPrice(),
                 product.getPricePerUnit(),
                 product.getRating(),
                 product.getDietaryIcons(),

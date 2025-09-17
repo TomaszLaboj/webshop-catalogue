@@ -22,6 +22,7 @@ public class ProductRaw {
     ShelfLife shelfLife;
 
     float price;
+    int stockAtThisPrice;
 
     float rating;
     List<String> dietaryIcons;
@@ -37,6 +38,7 @@ public class ProductRaw {
         this.measure = new Measure(productFlatDto.getTypeOfMeasure(), productFlatDto.getMeasureCount(),productFlatDto.getUnitOfMeasure());
         this.shelfLife = new ShelfLife(productFlatDto.getShelfLifeCount(), productFlatDto.getShelfLifeUnitOfMeasure());
         this.price = productFlatDto.getPrice();
+        this.stockAtThisPrice = productFlatDto.getStockAtThisPrice();
         this.rating = productFlatDto.getRating();
         this.dietaryIcons = productFlatDto.getDietaryIcons();
     }

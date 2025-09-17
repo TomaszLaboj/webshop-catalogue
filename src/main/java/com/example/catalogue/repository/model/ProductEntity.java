@@ -35,6 +35,7 @@ public class ProductEntity implements Serializable {
     String shelfLifeUnit;
 
     float price;
+    int stockAtThisPrice;
 
     float rating;
     List<String> dietaryIcons;
@@ -50,6 +51,7 @@ public class ProductEntity implements Serializable {
         this.shelfLifeCount = productRaw.getShelfLife().shelfLifeCount();
         this.shelfLifeUnit = productRaw.getShelfLife().shelfLifeUnit();
         this.price = productRaw.getPrice();
+        this.stockAtThisPrice = productRaw.getStockAtThisPrice();
         this.rating = productRaw.getRating();
         this.dietaryIcons = productRaw.getDietaryIcons();
         this.stockCount = productRaw.getStockCount();
@@ -73,6 +75,7 @@ public class ProductEntity implements Serializable {
                         this.getShelfLifeUnit()
                 ),
                 this.getPrice(),
+                this.getStockAtThisPrice(),
                 this.getRating(),
                 this.getDietaryIcons(),
                 this.getStockCount()

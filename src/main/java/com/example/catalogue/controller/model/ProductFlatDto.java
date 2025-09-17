@@ -18,6 +18,7 @@ public class ProductFlatDto {
     private int shelfLifeCount;
     private String shelfLifeUnitOfMeasure;
     private float price;
+    private int stockAtThisPrice;
     private float rating;
     private List<String> dietaryIcons;
 }

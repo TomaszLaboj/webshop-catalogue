@@ -20,6 +20,7 @@ public class ProductEnriched {
     ShelfLife shelfLife;
 
     float price;
+    int stockAtThisPrice;
 
     float rating;
     List<String> dietaryIcons;
@@ -35,6 +36,7 @@ public class ProductEnriched {
                measure = product.measure;
                shelfLife = product.shelfLife;
                price = product.price;
+               stockAtThisPrice = product.stockAtThisPrice;
                rating = product.rating;
                dietaryIcons = product.dietaryIcons;
                stockCount = product.stockCount;
