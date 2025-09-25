@@ -30,7 +30,7 @@ public class ProductController {
     }
 
     @GetMapping("/products")
-    public List<ProductDto> getProducts() {
+    public List<ProductDto> getProducts() throws JsonProcessingException {
         return catalogueService
                 .getAllProducts()
                 .stream()
@@ -71,6 +71,7 @@ public class ProductController {
     public ProductRaw updateProductStock(@RequestBody ProductPrice productStockQuantity) throws JsonProcessingException {
         return catalogueService.updateStock(productStockQuantity);
     }
+
 
     public ProductDto toProductDto(ProductEnriched product) {
         return ProductDto.fromDomainModel(product);

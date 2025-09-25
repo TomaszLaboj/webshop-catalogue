@@ -30,4 +30,8 @@ public class KafkaProducer {
       kafkaTemplate.send("update-stock", mapper.writeValueAsString(productPrice));
    }
 
+   public void checkPrices(List<Long> productIds) throws JsonProcessingException {
+        kafkaTemplate.send("check-prices", mapper.writeValueAsString(productIds));
+   }
+
 }

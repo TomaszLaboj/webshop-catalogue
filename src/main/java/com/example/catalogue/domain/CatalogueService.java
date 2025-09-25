@@ -36,8 +36,15 @@ public class CatalogueService {
         return productRepository.findProductsByCategory(category);
     };
 
-    public List<ProductEnriched> getAllProducts() {
-        return productRepository.findAll();
+    public List<ProductEnriched> getAllProducts() throws JsonProcessingException {
+        List<ProductEnriched> allProducts = productRepository.findAll();
+        List<Long> productIds = allProducts.stream().map(ProductEnriched::getId).collect(Collectors.toList());
+        checkPrices(productIds);
+        return allProducts;
+    };
+
+    public void checkPrices(List<Long> productIds) throws JsonProcessingException {
+        kafkaProducer.checkPrices(productIds);
     };
 
     public ProductRaw createProduct(ProductRaw productRaw) {
