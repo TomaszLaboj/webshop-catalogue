@@ -39,12 +39,11 @@ public class CatalogueService {
     public List<ProductEnriched> getAllProducts() throws JsonProcessingException {
         List<ProductEnriched> allProducts = productRepository.findAll();
         List<Long> productIds = allProducts.stream().map(ProductEnriched::getId).collect(Collectors.toList());
-        checkPrices(productIds);
         return allProducts;
     };
 
-    public void checkPrices(List<Long> productIds) throws JsonProcessingException {
-        kafkaProducer.checkPrices(productIds);
+    public void checkPrice(Long productId) throws JsonProcessingException {
+        kafkaProducer.checkPrice(productId);
     };
 
     public ProductRaw createProduct(ProductRaw productRaw) {

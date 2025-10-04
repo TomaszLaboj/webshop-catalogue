@@ -22,16 +22,12 @@ public class KafkaProducer {
 
     ObjectMapper mapper = new ObjectMapper();
 
-    public void sendUpdated(List<ProductPrice> updatedProducts) throws JsonProcessingException {
-        kafkaTemplate.send("updated", mapper.writeValueAsString(updatedProducts));
-    }
-
    public void sendUpdatedStock(ProductPrice productPrice) throws JsonProcessingException {
       kafkaTemplate.send("update-stock", mapper.writeValueAsString(productPrice));
    }
 
-   public void checkPrices(List<Long> productIds) throws JsonProcessingException {
-        kafkaTemplate.send("check-prices", mapper.writeValueAsString(productIds));
+   public void checkPrice(Long productId) throws JsonProcessingException {
+        kafkaTemplate.send("check-price", mapper.writeValueAsString(productId));
    }
 
 }
