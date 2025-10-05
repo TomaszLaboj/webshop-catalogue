@@ -1,11 +1,10 @@
-package com.example.catalogue.repository;
+package com.example.catalogue.repository.product;
 
 import java.util.List;
 
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.CrudRepository;
 
-import com.example.catalogue.repository.model.ProductEntity;
+import com.example.catalogue.repository.product.model.ProductEntity;
 
 public interface JpaProductRepository extends CrudRepository<ProductEntity, Long> {
     ProductEntity findById(long id);

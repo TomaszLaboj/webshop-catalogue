@@ -1,4 +1,4 @@
-package com.example.catalogue.repository;
+package com.example.catalogue.repository.product;
 
 import java.util.List;
 import java.util.Optional;
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.example.catalogue.domain.ProductRepository;
 import com.example.catalogue.domain.model.ProductEnriched;
 import com.example.catalogue.domain.model.ProductRaw;
-import com.example.catalogue.repository.model.ProductEntity;
+import com.example.catalogue.repository.product.model.ProductEntity;
 
 @Repository
 public class ProductRepositoryPostgres implements ProductRepository {

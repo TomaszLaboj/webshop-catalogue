@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.example.catalogue.domain.model.ProductEnriched;
 import com.example.catalogue.domain.model.ProductRaw;
-import com.example.catalogue.repository.model.ProductEntity;
+import com.example.catalogue.repository.product.model.ProductEntity;
 
 
 public interface ProductRepository {

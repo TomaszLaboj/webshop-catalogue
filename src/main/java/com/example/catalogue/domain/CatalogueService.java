@@ -10,7 +10,7 @@ import com.example.catalogue.domain.model.ProductEnriched;
 import com.example.catalogue.domain.model.ProductPrice;
 import com.example.catalogue.domain.model.ProductRaw;
 import com.example.catalogue.kafka.KafkaProducer;
-import com.example.catalogue.repository.ProductRepositoryPostgres;
+import com.example.catalogue.repository.product.ProductRepositoryPostgres;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
 @Service
