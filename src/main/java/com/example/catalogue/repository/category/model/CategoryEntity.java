@@ -1,6 +1,7 @@
 package com.example.catalogue.repository.category.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -10,7 +11,13 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 public class CategoryEntity {
+
+    @Id
     Long categoryId;
     String categoryName;
+
+    public CategoryEntity() {
+
+    }
 }
 
