@@ -1,0 +1,36 @@
+{
+  "bakery": {
+    "bread": {
+      "white_bread": {},
+      "brown_bread": {},
+      "sourdough_bread": {},
+      "rye_bread": {}
+    },
+    "rolls_bagels_and_sandwich_thins": {},
+    "cakes_and_treats": {},
+    "croissants_brioche_and_breakfast": {},
+    "ciabbattas_and_baguettes": {}
+  },
+  "fresh_and_chilled_products": {
+    "dairy_and_eggs": {
+      "dairy": {
+        "milk": [
+          "fresh_milk",
+          "long_life"
+        ]
+      },
+      "eggs": []
+    }
+  "meat_and_poultry": {},
+  "fish_and_seafood": {},
+  "fruit": {},
+  "vegetables": {}
+  },
+  "food_cupboard": {
+    "rice_and_pasta": ["rice","pasta"],
+    "tea_coffe_and_hot_drinks": {},
+    "chocolate_and_sweets": {}
+
+  },
+  "beer_wine_and_spirits": {}
+}
