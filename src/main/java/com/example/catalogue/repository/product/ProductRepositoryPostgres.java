@@ -8,8 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.example.catalogue.domain.ProductRepository;
-import com.example.catalogue.domain.model.ProductEnriched;
-import com.example.catalogue.domain.model.ProductRaw;
+import com.example.catalogue.domain.model.product.ProductEnriched;
+import com.example.catalogue.domain.model.product.ProductRaw;
 import com.example.catalogue.repository.product.model.ProductEntity;
 
 @Repository
@@ -23,7 +23,6 @@ public class ProductRepositoryPostgres implements ProductRepository {
 
     public ProductRaw findById(long id) {
         return jpaRepository.findById(id).toRaw();
-
     };
 
     public List<ProductEnriched> findByName(String name) {

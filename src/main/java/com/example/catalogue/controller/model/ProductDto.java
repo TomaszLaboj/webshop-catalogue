@@ -2,10 +2,10 @@ package com.example.catalogue.controller.model;
 
 import java.util.List;
 
-import com.example.catalogue.domain.model.Measure;
-import com.example.catalogue.domain.model.PricePerUnit;
-import com.example.catalogue.domain.model.ProductEnriched;
-import com.example.catalogue.domain.model.ShelfLife;
+import com.example.catalogue.domain.model.product.Measure;
+import com.example.catalogue.domain.model.product.PricePerUnit;
+import com.example.catalogue.domain.model.product.ProductEnriched;
+import com.example.catalogue.domain.model.product.ShelfLife;
 
 public record ProductDto(
         long id,

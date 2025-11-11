@@ -2,8 +2,8 @@ package com.example.catalogue.domain;
 
 import java.util.List;
 
-import com.example.catalogue.domain.model.ProductEnriched;
-import com.example.catalogue.domain.model.ProductRaw;
+import com.example.catalogue.domain.model.product.ProductEnriched;
+import com.example.catalogue.domain.model.product.ProductRaw;
 import com.example.catalogue.repository.product.model.ProductEntity;
 
 

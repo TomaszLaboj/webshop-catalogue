@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.catalogue.controller.model.ProductDto;
 import com.example.catalogue.controller.model.ProductFlatDto;
-import com.example.catalogue.domain.model.ProductEnriched;
+import com.example.catalogue.domain.model.product.ProductEnriched;
 import com.example.catalogue.domain.CatalogueService;
-import com.example.catalogue.domain.model.ProductPrice;
-import com.example.catalogue.domain.model.ProductRaw;
+import com.example.catalogue.domain.model.product.ProductPrice;
+import com.example.catalogue.domain.model.product.ProductRaw;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
 @RestController

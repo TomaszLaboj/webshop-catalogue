@@ -3,9 +3,9 @@ package com.example.catalogue.repository.product.model;
 import java.io.Serializable;
 import java.util.List;
 
-import com.example.catalogue.domain.model.Measure;
-import com.example.catalogue.domain.model.ProductRaw;
-import com.example.catalogue.domain.model.ShelfLife;
+import com.example.catalogue.domain.model.product.Measure;
+import com.example.catalogue.domain.model.product.ProductRaw;
+import com.example.catalogue.domain.model.product.ShelfLife;
 
 import jakarta.persistence.*;
 import lombok.Getter;

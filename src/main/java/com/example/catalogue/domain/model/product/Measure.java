@@ -1,4 +1,4 @@
-package com.example.catalogue.domain.model;
+package com.example.catalogue.domain.model.product;
 
 public record Measure (
     String measureType,

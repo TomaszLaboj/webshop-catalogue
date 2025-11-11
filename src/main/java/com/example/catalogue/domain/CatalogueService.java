@@ -6,9 +6,9 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.catalogue.domain.model.ProductEnriched;
-import com.example.catalogue.domain.model.ProductPrice;
-import com.example.catalogue.domain.model.ProductRaw;
+import com.example.catalogue.domain.model.product.ProductEnriched;
+import com.example.catalogue.domain.model.product.ProductPrice;
+import com.example.catalogue.domain.model.product.ProductRaw;
 import com.example.catalogue.kafka.KafkaProducer;
 import com.example.catalogue.repository.product.ProductRepositoryPostgres;
 import com.fasterxml.jackson.core.JsonProcessingException;
