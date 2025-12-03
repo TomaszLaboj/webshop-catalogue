@@ -1,4 +1,4 @@
-package com.example.catalogue.domain.model.product;
+package com.example.catalogue.domain.productService.model.product;
 
 public record ShelfLife (
         int shelfLifeCount,

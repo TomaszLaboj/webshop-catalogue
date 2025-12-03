@@ -1,17 +1,18 @@
-package com.example.catalogue.controller.model;
+package com.example.catalogue.controller.productController.model;
 
 import java.util.List;
 
-import com.example.catalogue.domain.model.product.Measure;
-import com.example.catalogue.domain.model.product.PricePerUnit;
-import com.example.catalogue.domain.model.product.ProductEnriched;
-import com.example.catalogue.domain.model.product.ShelfLife;
+import com.example.catalogue.domain.categoryService.model.category.Category;
+import com.example.catalogue.domain.productService.model.product.Measure;
+import com.example.catalogue.domain.productService.model.product.PricePerUnit;
+import com.example.catalogue.domain.productService.model.product.ProductEnriched;
+import com.example.catalogue.domain.productService.model.product.ShelfLife;
 
 public record ProductDto(
         long id,
         String name,
         String image,
-        String category,
+        Category category,
 
         Measure measure,
         ShelfLife shelfLife,

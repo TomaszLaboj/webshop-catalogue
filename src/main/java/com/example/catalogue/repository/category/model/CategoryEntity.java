@@ -1,5 +1,7 @@
 package com.example.catalogue.repository.category.model;
 
+import com.example.catalogue.domain.categoryService.model.category.Category;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -18,11 +20,18 @@ public class CategoryEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long categoryId;
+
     @Column(name = "category_name")
     String categoryName;
 
-    public CategoryEntity() {
+    public CategoryEntity(String categoryName) {
+        this.categoryName = categoryName;
+    }
 
+    public CategoryEntity() {}
+
+    public Category toCategory() {
+        return new Category(this.categoryName);
     }
 }
 

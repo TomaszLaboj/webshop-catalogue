@@ -6,10 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 
-import com.example.catalogue.controller.model.ProductFlatDto;
-import com.example.catalogue.domain.CatalogueService;
-import com.example.catalogue.domain.model.product.ProductPrice;
-import com.example.catalogue.domain.model.product.ProductRaw;
+import com.example.catalogue.controller.productController.model.ProductFlatDto;
+import com.example.catalogue.domain.productService.CatalogueService;
+import com.example.catalogue.domain.productService.model.product.ProductPrice;
+import com.example.catalogue.domain.productService.model.product.ProductRaw;
 
 @Component
 public class KafkaConsumer {

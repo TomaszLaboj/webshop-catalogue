@@ -1,8 +1,9 @@
-package com.example.catalogue.domain.model.product;
+package com.example.catalogue.domain.productService.model.product;
 
 import java.util.List;
 
-import com.example.catalogue.controller.model.ProductFlatDto;
+import com.example.catalogue.controller.productController.model.ProductFlatDto;
+import com.example.catalogue.domain.categoryService.model.category.Category;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -16,7 +17,7 @@ public class ProductRaw {
 
     String name;
     String image;
-    String category;
+    Category category;
 
     Measure measure;
     ShelfLife shelfLife;
@@ -34,7 +35,7 @@ public class ProductRaw {
         this.id = productFlatDto.getId();
         this.name = productFlatDto.getName();
         this.image = productFlatDto.getImage();
-        this.category = productFlatDto.getCategory();
+        this.category = new Category(productFlatDto.getId(), productFlatDto.getName());
         this.measure = new Measure(productFlatDto.getTypeOfMeasure(), productFlatDto.getMeasureCount(),productFlatDto.getUnitOfMeasure());
         this.shelfLife = new ShelfLife(productFlatDto.getShelfLifeCount(), productFlatDto.getShelfLifeUnitOfMeasure());
         this.price = productFlatDto.getPrice();

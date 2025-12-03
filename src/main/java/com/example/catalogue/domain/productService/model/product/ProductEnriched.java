@@ -1,6 +1,8 @@
-package com.example.catalogue.domain.model.product;
+package com.example.catalogue.domain.productService.model.product;
 
 import java.util.List;
+
+import com.example.catalogue.domain.categoryService.model.category.Category;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -14,7 +16,7 @@ public class ProductEnriched {
 
     String name;
     String image;
-    String category;
+    Category category;
 
     Measure measure;
     ShelfLife shelfLife;
@@ -29,21 +31,21 @@ public class ProductEnriched {
     PricePerUnit pricePerUnit;
 
     public ProductEnriched(ProductRaw product) {
-               id = product.id;
-               name = product.name;
-               image =  product.image;
-               category = product.category;
-               measure = product.measure;
-               shelfLife = product.shelfLife;
-               price = product.price;
-               stockAtThisPrice = product.stockAtThisPrice;
-               rating = product.rating;
-               dietaryIcons = product.dietaryIcons;
-               stockCount = product.stockCount;
+               id = product.getId();
+               name = product.getName();
+               image =  product.getImage();
+               category = product.getCategory();
+               measure = product.getMeasure();
+               shelfLife = product.getShelfLife();
+               price = product.getPrice();
+               stockAtThisPrice = product.getStockAtThisPrice();
+               rating = product.getRating();
+               dietaryIcons = product.getDietaryIcons();
+               stockCount = product.getStockCount();
                pricePerUnit = calculatePricePerUnit(
-                       product.price,
-                       product.measure.measureCount(),
-                       product.measure.unitOfMeasure()
+                       product.getPrice(),
+                       product.getMeasure().measureCount(),
+                       product.getMeasure().unitOfMeasure()
                );
     }
 

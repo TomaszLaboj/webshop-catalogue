@@ -1,4 +1,4 @@
-package com.example.catalogue.controller;
+package com.example.catalogue.controller.productController;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -11,12 +11,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.catalogue.controller.model.ProductDto;
-import com.example.catalogue.controller.model.ProductFlatDto;
-import com.example.catalogue.domain.model.product.ProductEnriched;
-import com.example.catalogue.domain.CatalogueService;
-import com.example.catalogue.domain.model.product.ProductPrice;
-import com.example.catalogue.domain.model.product.ProductRaw;
+import com.example.catalogue.controller.productController.model.ProductDto;
+import com.example.catalogue.controller.productController.model.ProductFlatDto;
+import com.example.catalogue.domain.productService.model.product.ProductEnriched;
+import com.example.catalogue.domain.productService.CatalogueService;
+import com.example.catalogue.domain.productService.model.product.ProductPrice;
+import com.example.catalogue.domain.productService.model.product.ProductRaw;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
 @RestController
@@ -58,10 +58,10 @@ public class ProductController {
                 .collect(Collectors.toList());
     };
 
-    @GetMapping(value="/products", params="category")
-    public List<ProductDto> getProductByCategory(@RequestParam("category") String category) {
+    @GetMapping(value="/products", params="categoryId")
+    public List<ProductDto> getProductsByCategory(@RequestParam("categoryId") Long categoryId) {
         return catalogueService
-                .getProductByName(category)
+                .getProductsByCategory(categoryId)
                 .stream()
                 .map(this::toProductDto)
                 .collect(Collectors.toList());

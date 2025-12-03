@@ -3,9 +3,11 @@ package com.example.catalogue.repository.product.model;
 import java.io.Serializable;
 import java.util.List;
 
-import com.example.catalogue.domain.model.product.Measure;
-import com.example.catalogue.domain.model.product.ProductRaw;
-import com.example.catalogue.domain.model.product.ShelfLife;
+import com.example.catalogue.domain.categoryService.model.category.Category;
+import com.example.catalogue.domain.productService.model.product.Measure;
+import com.example.catalogue.domain.productService.model.product.ProductRaw;
+import com.example.catalogue.domain.productService.model.product.ShelfLife;
+import com.example.catalogue.repository.category.model.CategoryEntity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -22,7 +24,10 @@ public class ProductEntity implements Serializable {
 
     String name;
     String image;
-    String category;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "category_id", nullable = false)
+    CategoryEntity category;
 
     String measureType;
     int measureCount;
@@ -38,10 +43,10 @@ public class ProductEntity implements Serializable {
     List<String> dietaryIcons;
     public int stockCount;
 
+
     public ProductEntity(ProductRaw productRaw) {
         this.name = productRaw.getName();
         this.image = productRaw.getImage();
-        this.category = productRaw.getCategory();
         this.measureType = productRaw.getMeasure().measureType();
         this.measureCount = productRaw.getMeasure().measureCount();
         this.unitOfMeasure = productRaw.getMeasure().unitOfMeasure();
@@ -61,7 +66,7 @@ public class ProductEntity implements Serializable {
                 this.getId(),
                 this.getName(),
                 this.getImage(),
-                this.getCategory(),
+                new Category(this.getCategory().getCategoryId(), this.getCategory().getCategoryName()),
                 new Measure(
                         this.getMeasureType(),
                         this.getMeasureCount(),

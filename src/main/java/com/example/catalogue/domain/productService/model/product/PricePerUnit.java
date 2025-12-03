@@ -1,4 +1,4 @@
-package com.example.catalogue.domain.model.product;
+package com.example.catalogue.domain.productService.model.product;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

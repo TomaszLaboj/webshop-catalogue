@@ -1,6 +1,8 @@
-package com.example.catalogue.controller.model;
+package com.example.catalogue.controller.productController.model;
 
 import java.util.List;
+
+import com.example.catalogue.controller.categoryController.model.CategoryDto;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -11,7 +13,7 @@ public class ProductFlatDto {
     private Long id;
     private String name;
     private String image;
-    private String category;
+    private CategoryDto category;
     private String typeOfMeasure;
     private int measureCount;
     private String unitOfMeasure;
