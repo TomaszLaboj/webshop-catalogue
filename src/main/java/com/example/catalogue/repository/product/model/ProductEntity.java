@@ -29,6 +29,7 @@ public class ProductEntity implements Serializable {
     @JoinColumn(name = "category_id", nullable = false)
     CategoryEntity category;
 
+    int numberOfItemsInPack;
     String measureType;
     int measureCount;
     String unitOfMeasure;
@@ -47,6 +48,7 @@ public class ProductEntity implements Serializable {
     public ProductEntity(ProductRaw productRaw) {
         this.name = productRaw.getName();
         this.image = productRaw.getImage();
+        this.numberOfItemsInPack = productRaw.getMeasure().numberOfItemsInPack();
         this.measureType = productRaw.getMeasure().measureType();
         this.measureCount = productRaw.getMeasure().measureCount();
         this.unitOfMeasure = productRaw.getMeasure().unitOfMeasure();
@@ -68,6 +70,7 @@ public class ProductEntity implements Serializable {
                 this.getImage(),
                 new Category(this.getCategory().getCategoryId(), this.getCategory().getCategoryName()),
                 new Measure(
+                        this.getNumberOfItemsInPack(),
                         this.getMeasureType(),
                         this.getMeasureCount(),
                         this.getUnitOfMeasure()

@@ -1,9 +1,7 @@
 package com.example.catalogue.domain.productService.model.product;
 
-import lombok.Getter;
-import lombok.Setter;
-
 public record Measure (
+    int numberOfItemsInPack,
     String measureType,
     int measureCount,
     String unitOfMeasure

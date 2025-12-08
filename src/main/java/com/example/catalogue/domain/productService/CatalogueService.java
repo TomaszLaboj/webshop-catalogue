@@ -43,7 +43,6 @@ public class CatalogueService {
     };
 
     public ProductRaw createProduct(ProductRaw productRaw) {
-
         productRepository.save(productRaw);
         return  productRaw;
     }

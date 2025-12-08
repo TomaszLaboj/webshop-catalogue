@@ -31,6 +31,7 @@ public record ProductDto(
                 product.getImage(),
                 product.getCategory(),
                 new Measure(
+                        product.getMeasure().numberOfItemsInPack(),
                         product.getMeasure().measureType(),
                         product.getMeasure().measureCount(),
                         product.getMeasure().unitOfMeasure()

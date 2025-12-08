@@ -36,7 +36,7 @@ public class ProductRaw {
         this.name = productFlatDto.getName();
         this.image = productFlatDto.getImage();
         this.category = new Category(productFlatDto.getId(), productFlatDto.getName());
-        this.measure = new Measure(productFlatDto.getTypeOfMeasure(), productFlatDto.getMeasureCount(),productFlatDto.getUnitOfMeasure());
+        this.measure = new Measure(productFlatDto.getNumberOfItemsInPack(), productFlatDto.getTypeOfMeasure(), productFlatDto.getMeasureCount(),productFlatDto.getUnitOfMeasure());
         this.shelfLife = new ShelfLife(productFlatDto.getShelfLifeCount(), productFlatDto.getShelfLifeUnitOfMeasure());
         this.price = productFlatDto.getPrice();
         this.stockAtThisPrice = productFlatDto.getStockAtThisPrice();

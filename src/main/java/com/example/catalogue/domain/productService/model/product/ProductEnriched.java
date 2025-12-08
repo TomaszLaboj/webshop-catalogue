@@ -43,13 +43,14 @@ public class ProductEnriched {
                dietaryIcons = product.getDietaryIcons();
                stockCount = product.getStockCount();
                pricePerUnit = calculatePricePerUnit(
+                       product.getMeasure().numberOfItemsInPack(),
                        product.getPrice(),
                        product.getMeasure().measureCount(),
                        product.getMeasure().unitOfMeasure()
                );
     }
 
-    PricePerUnit calculatePricePerUnit(float price, int measureCount, String unitOfMeasure) {
+    PricePerUnit calculatePricePerUnit(int numberOfItemsInPack, float price, int measureCount, String unitOfMeasure) {
         float pricePerUnit = 0;
         int unitCount = 0;
 

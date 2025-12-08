@@ -2,7 +2,9 @@
 {
   "name": "White Bread",
   "image": "http.url",
-  "category": "bakery/bread/white_bread",
+  "categorId": 1,
+  "categoryName": "Bakery",
+  "numberOfItemsInPack": 1,
   "typeOfMeasure": "weight",
   "measureCount": 800,
   "unitOfMeasure": "gram",
