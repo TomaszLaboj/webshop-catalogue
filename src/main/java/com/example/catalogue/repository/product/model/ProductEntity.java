@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.example.catalogue.domain.categoryService.model.category.Category;
 import com.example.catalogue.domain.productService.model.product.Measure;
+import com.example.catalogue.domain.productService.model.product.MeasureType;
 import com.example.catalogue.domain.productService.model.product.ProductRaw;
 import com.example.catalogue.domain.productService.model.product.ShelfLife;
 import com.example.catalogue.repository.category.model.CategoryEntity;
@@ -30,7 +31,9 @@ public class ProductEntity implements Serializable {
     CategoryEntity category;
 
     int numberOfItemsInPack;
-    String measureType;
+
+    @Enumerated(EnumType.STRING)
+    MeasureType measureType;
     int measureCount;
     String unitOfMeasure;
 
