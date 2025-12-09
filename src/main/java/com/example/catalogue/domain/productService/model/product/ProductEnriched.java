@@ -30,6 +30,7 @@ public class ProductEnriched {
 
     PricePerUnit pricePerUnit;
     //adding comment
+    // adding another comment
 
     public ProductEnriched(ProductRaw product) {
                id = product.getId();
