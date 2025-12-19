@@ -1,6 +1,7 @@
 package com.example.catalogue.repository.category;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -29,6 +30,15 @@ public class CategoryRepositoryPostgres implements CategoryRepository {
     }
 
     public CategoryEntity getCategoryById(Long id) {
-        return jpaCategoryRepository.findById(id).get();
+        Optional<CategoryEntity> categoryEntity = jpaCategoryRepository.findById(id);
+        if (categoryEntity.isPresent()) {
+            return jpaCategoryRepository.findById(id).get();
+        }
+        return null;
     }
+
+    public List<CategoryEntity> getCategoryTree() {
+        return jpaCategoryRepository.findByParentIsNull();
+    }
+
 }

@@ -22,6 +22,11 @@ public class CategoryController {
         this.categoryService = categoryService;
     }
 
+    @GetMapping("/categories-tree")
+    public List<Category> getCategoryTree() {
+        return categoryService.getCategoryTree();
+    }
+
     @GetMapping("/categories")
     public List<Category> getAllCategories() {
         return categoryService.listCategories();

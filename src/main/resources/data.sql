@@ -5,7 +5,44 @@ INSERT INTO category_entity (category_name) VALUES ('Cupboard');
 INSERT INTO category_entity (category_name) VALUES ('Chilled products');
 INSERT INTO category_entity (category_name) VALUES ('Alcohol');
 INSERT INTO category_entity (category_name) VALUES ('Freezer');
-
+INSERT INTO category_entity (category_name, parent_category_id) VALUES ('Bread', '1');
+INSERT INTO category_entity (category_name, parent_category_id) VALUES ('Rolls & Bagels', '1');
+INSERT INTO category_entity (category_name, parent_category_id) VALUES ('Ciabatta & Baguettes', '1');
+INSERT INTO category_entity (category_name, parent_category_id) VALUES ('Cakes & Treats', '1');
+INSERT INTO category_entity (category_name, parent_category_id) VALUES ('Gluten Free', '1');
+INSERT INTO category_entity (category_name, parent_category_id) VALUES ('Milk', '2');
+INSERT INTO category_entity (category_name, parent_category_id) VALUES ('Cheese', '2');
+INSERT INTO category_entity (category_name, parent_category_id) VALUES ('Butter & Spreads', '2');
+INSERT INTO category_entity (category_name, parent_category_id) VALUES ('Cream', '2');
+INSERT INTO category_entity (category_name, parent_category_id) VALUES ('Eggs', '2');
+INSERT INTO category_entity (category_name, parent_category_id) VALUES ('Plant based', '2');
+INSERT INTO category_entity (category_name, parent_category_id) VALUES ('Yoghurts', '2');
+INSERT INTO category_entity (category_name, parent_category_id) VALUES ('Vegetables', '3');
+INSERT INTO category_entity (category_name, parent_category_id) VALUES ('Fruits', '3');
+INSERT INTO category_entity (category_name, parent_category_id) VALUES ('Pasta', '4');
+INSERT INTO category_entity (category_name, parent_category_id) VALUES ('Rice', '4');
+INSERT INTO category_entity (category_name, parent_category_id) VALUES ('Sugar & Baking', '4');
+INSERT INTO category_entity (category_name, parent_category_id) VALUES ('Ingredients', '4');
+INSERT INTO category_entity (category_name, parent_category_id) VALUES ('Tins & Cans', '4');
+INSERT INTO category_entity (category_name, parent_category_id) VALUES ('Tea, Coffe & Hot Drinks', '4');
+INSERT INTO category_entity (category_name, parent_category_id) VALUES ('Meat & Poultry', '5');
+INSERT INTO category_entity (category_name, parent_category_id) VALUES ('Fish & Seafood', '5');
+INSERT INTO category_entity (category_name, parent_category_id) VALUES ('Pizza', '5');
+INSERT INTO category_entity (category_name, parent_category_id) VALUES ('Ready meals', '5');
+INSERT INTO category_entity (category_name, parent_category_id) VALUES ('Vegetarian', '5');
+INSERT INTO category_entity (category_name, parent_category_id) VALUES ('Vegan', '5');
+INSERT INTO category_entity (category_name, parent_category_id) VALUES ('Soups', '5');
+INSERT INTO category_entity (category_name, parent_category_id) VALUES ('Beer', '6');
+INSERT INTO category_entity (category_name, parent_category_id) VALUES ('Wine', '6');
+INSERT INTO category_entity (category_name, parent_category_id) VALUES ('Spirits', '6');
+INSERT INTO category_entity (category_name, parent_category_id) VALUES ('Cider', '6');
+INSERT INTO category_entity (category_name, parent_category_id) VALUES ('Liquers', '6');
+INSERT INTO category_entity (category_name, parent_category_id) VALUES ('Meat & Poultry', '7');
+INSERT INTO category_entity (category_name, parent_category_id) VALUES ('Fish & Seafood', '7');
+INSERT INTO category_entity (category_name, parent_category_id) VALUES ('Pizza', '7');
+INSERT INTO category_entity (category_name, parent_category_id) VALUES ('Vegetarian', '7');
+INSERT INTO category_entity (category_name, parent_category_id) VALUES ('Vegan', '7');
+INSERT INTO category_entity (category_name, parent_category_id) VALUES ('Ice Creams', '7');
 INSERT INTO product_entity (
     id,
     name,

@@ -20,6 +20,7 @@ public class CatalogueApplication {
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/products").allowedOrigins("http://localhost:5173");
                 registry.addMapping("/categories").allowedOrigins("http://localhost:5173");
+                registry.addMapping("/categories-tree").allowedOrigins("http://localhost:5173");
             }
         };
     }

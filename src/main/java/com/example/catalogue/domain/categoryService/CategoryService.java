@@ -8,11 +8,14 @@ import org.springframework.stereotype.Service;
 import com.example.catalogue.controller.categoryController.model.CategoryDto;
 import com.example.catalogue.domain.categoryService.model.category.Category;
 import com.example.catalogue.repository.category.CategoryRepositoryPostgres;
+import com.example.catalogue.repository.category.model.CategoryEntity;
+
+import jakarta.transaction.Transactional;
 
 @Service
 public class CategoryService {
 
-    private CategoryRepositoryPostgres categoryRepository;
+    final private CategoryRepositoryPostgres categoryRepository;
 
     @Autowired
     public CategoryService(CategoryRepositoryPostgres categoryRepository) {
@@ -21,6 +24,16 @@ public class CategoryService {
 
     public List<Category> listCategories() {
         return categoryRepository.listCategories();
+    }
+
+    @Transactional
+    public List<Category> getCategoryTree() {
+        List<CategoryEntity> roots =
+                categoryRepository.getCategoryTree();
+
+        return roots.stream()
+                .map(CategoryMapper::toDomain)
+                .toList();
     }
 
     public Category createCategory(CategoryDto categoryDto) {
