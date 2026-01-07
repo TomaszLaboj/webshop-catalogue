@@ -29,10 +29,10 @@ public class CategoryRepositoryPostgres implements CategoryRepository {
         jpaCategoryRepository.save(new CategoryEntity(category.getCategoryName()));
     }
 
-    public CategoryEntity getCategoryById(Long id) {
-        Optional<CategoryEntity> categoryEntity = jpaCategoryRepository.findById(id);
+    public CategoryEntity getCategoryByCategoryId(Long categoryId) {
+        Optional<CategoryEntity> categoryEntity = jpaCategoryRepository.findById(categoryId);
         if (categoryEntity.isPresent()) {
-            return jpaCategoryRepository.findById(id).get();
+            return categoryEntity.get();
         }
         return null;
     }

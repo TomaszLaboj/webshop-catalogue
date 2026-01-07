@@ -1,4 +1,4 @@
-package com.example.catalogue.domain.categoryService;
+package com.example.catalogue.repository.product;
 
 import java.util.List;
 

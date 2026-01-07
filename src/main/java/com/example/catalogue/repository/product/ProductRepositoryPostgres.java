@@ -28,7 +28,7 @@ public class ProductRepositoryPostgres implements ProductRepository {
 
     public ProductRaw findById(long id) {
         return jpaProductRepository.findById(id).toRaw();
-    };
+    }
 
     public List<ProductEnriched> findByName(String name) {
         return jpaProductRepository.findByName(name)
@@ -52,11 +52,11 @@ public class ProductRepositoryPostgres implements ProductRepository {
                 .map(ProductEntity::toRaw)
                 .map(productRaw -> new ProductEnriched(productRaw))
                 .collect(Collectors.toList());
-    };
+    }
 
     public ProductEntity save(ProductRaw productRaw) {
         ProductEntity productEntity = new ProductEntity(productRaw);
-        CategoryEntity categoryEntity = categoryRepository.getCategoryById(productRaw.getCategory().getCategoryId());
+        CategoryEntity categoryEntity = categoryRepository.getCategoryByCategoryId(productRaw.getCategory().getCategoryId());
         productEntity.setCategory(categoryEntity);
         ProductEntity createdProduct = jpaProductRepository.save(productEntity);
         return createdProduct;

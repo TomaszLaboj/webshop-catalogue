@@ -8,4 +8,6 @@ import com.example.catalogue.repository.category.model.CategoryEntity;
 public interface CategoryRepository {
     List<Category> listCategories();
     void createCategory(Category category);
+    List<CategoryEntity> getCategoryTree();
+    CategoryEntity getCategoryByCategoryId(Long categoryId);
 }

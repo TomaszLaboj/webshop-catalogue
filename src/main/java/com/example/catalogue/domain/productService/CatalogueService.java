@@ -1,46 +1,71 @@
 package com.example.catalogue.domain.productService;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.catalogue.domain.categoryService.CategoryRepository;
+import com.example.catalogue.domain.categoryService.model.category.Category;
 import com.example.catalogue.domain.productService.model.product.ProductEnriched;
 import com.example.catalogue.domain.productService.model.product.ProductPrice;
 import com.example.catalogue.domain.productService.model.product.ProductRaw;
 import com.example.catalogue.kafka.KafkaProducer;
+import com.example.catalogue.repository.category.CategoryRepositoryPostgres;
+import com.example.catalogue.repository.product.CategoryMapper;
 import com.example.catalogue.repository.product.ProductRepositoryPostgres;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
 @Service
 public class CatalogueService {
     ProductRepository productRepository;
+    CategoryRepository categoryRepository;
     KafkaProducer kafkaProducer;
 
     @Autowired
-    public CatalogueService(ProductRepositoryPostgres productRepositoryPostgres,  KafkaProducer kafkaProducer) {
+    public CatalogueService(ProductRepositoryPostgres productRepositoryPostgres,CategoryRepositoryPostgres categoryRepositoryPostgres, KafkaProducer kafkaProducer) {
         this.productRepository = productRepositoryPostgres;
+        this.categoryRepository = categoryRepositoryPostgres;
         this.kafkaProducer = kafkaProducer;
     }
 
 
     public ProductEnriched getProductById(long id) {
         return new ProductEnriched(productRepository.findById(id));
-    };
+    }
 
     public List<ProductEnriched> getProductByName(String name) {
         return productRepository.findByName(name);
     }
 
     public List<ProductEnriched> getProductsByCategory(Long categoryId) {
-        return productRepository.findProductsByCategoryId(categoryId);
-    };
+        Category categoryToCheck = CategoryMapper.toDomain(categoryRepository.getCategoryByCategoryId(categoryId));
+        List<ProductEnriched> products = new ArrayList<>();
+        List<Long> categoriesIds = getSubcategoriesIds(categoryToCheck);
+        for (Long id : categoriesIds) {
+            List<ProductEnriched> tempList = productRepository.findProductsByCategoryId(id);
+            products.addAll(tempList);
+        }
+        return products;
+    }
 
-    public List<ProductEnriched> getAllProducts() throws JsonProcessingException {
+    List<Long> getSubcategoriesIds(Category category) {
+        List<Long> ids = new ArrayList<>();
+        ids.add(category.getCategoryId());
+        for (Category subcategory:category.getSubcategories()) {
+            List<Long> subcategoryIds = getSubcategoriesIds(subcategory);
+            if(!subcategoryIds.isEmpty()) { ids.addAll(subcategoryIds); }
+        }
+        return ids;
+    }
+
+    public List<ProductEnriched> getAllProducts() {
         List<ProductEnriched> allProducts = productRepository.findAll();
         return allProducts;
-    };
+    }
 
     public ProductRaw createProduct(ProductRaw productRaw) {
         productRepository.save(productRaw);
@@ -54,20 +79,19 @@ public class CatalogueService {
 
     public void checkPrice(Long productId) throws JsonProcessingException {
         kafkaProducer.checkPrice(productId);
-    };
+    }
 
 
     public List<ProductRaw> updatePrices(List<ProductPrice> productPrices) {
-        List<ProductRaw> productRaws = productPrices.stream()
+        return productPrices.stream()
                 .map((productPrice) -> updatePrice(productRepository.findById(productPrice.getId()))
                 )
                 .collect(Collectors.toList());
-        return productRaws;
     }
 
     public ProductRaw updatePrice(ProductRaw productRaw) {
         return productRepository.save(productRaw).toRaw();
-    };
+    }
 
 
 }
