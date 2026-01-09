@@ -893,5 +893,36 @@ INSERT INTO product_entity (
              4.9,
              26
          );
+INSERT INTO product_entity (
+    id,
+    name,
+    image,
+    category_id,
+    number_of_items_in_pack,
+    measure_type,
+    measure_count,
+    unit_of_measure,
+    shelf_life_count,
+    shelf_life_unit,
+    price,
+    stock_at_this_price,
+    rating,
+    stock_count
+) VALUES (
+             28,
+             'Trivento Reserve Malbec',
+             'https://www.ocado.com/images-v3/eafa5127-d256-497b-9609-4869092accd6/2b5cf8d8-0fa6-4d0f-b6c8-a7a9aea1a6b5/1280x1280.webp',
+             36,
+             1,
+             'VOLUME',
+             750,
+             'ml',
+             1,
+             'week',
+             8,
+             3,
+             4.9,
+             5
+         );
 
 

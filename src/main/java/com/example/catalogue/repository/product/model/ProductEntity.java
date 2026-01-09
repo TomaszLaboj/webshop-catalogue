@@ -34,7 +34,7 @@ public class ProductEntity implements Serializable {
 
     @Enumerated(EnumType.STRING)
     MeasureType measureType;
-    int measureCount;
+    Long measureCount;
     String unitOfMeasure;
 
     int shelfLifeCount;

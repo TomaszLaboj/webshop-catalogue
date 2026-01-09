@@ -17,7 +17,7 @@ public class ProductFlatDto {
     private CategoryDto category;
     private int numberOfItemsInPack;
     private MeasureType measureType;
-    private int measureCount;
+    private Long measureCount;
     private String unitOfMeasure;
     private int shelfLifeCount;
     private String shelfLifeUnitOfMeasure;

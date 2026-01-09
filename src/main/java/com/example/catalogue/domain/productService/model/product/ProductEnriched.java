@@ -50,7 +50,7 @@ public class ProductEnriched {
                );
     }
 
-    PricePerUnit calculatePricePerUnit(int numberOfItemsInPack, float price, int measureCount, String unitOfMeasure) {
+    PricePerUnit calculatePricePerUnit(int numberOfItemsInPack, float price, Long measureCount, String unitOfMeasure) {
         float pricePerUnit = 0;
         int unitCount = 0;
         String convertedUnitOfMeasure = "";
