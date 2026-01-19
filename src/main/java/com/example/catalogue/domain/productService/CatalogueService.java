@@ -33,8 +33,9 @@ public class CatalogueService {
     }
 
 
-    public ProductEnriched getProductById(long id) {
-        return new ProductEnriched(productRepository.findById(id));
+    public ProductEnriched getProductById(Long productId) throws JsonProcessingException {
+        kafkaProducer.checkPrice(productId);
+        return new ProductEnriched(productRepository.findById(productId));
     }
 
     public List<ProductEnriched> getProductByName(String name) {

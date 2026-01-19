@@ -45,7 +45,7 @@ public class ProductController {
     }
 
     @GetMapping(value="/products", params="id")
-    public ProductDto getProductById(@RequestParam("id") Long id) {
+    public ProductDto getProductById(@RequestParam("id") Long id) throws JsonProcessingException {
         return toProductDto(catalogueService.getProductById(id));
     };
 
@@ -71,7 +71,6 @@ public class ProductController {
     public ProductRaw updateProductStock(@RequestBody ProductPrice productStockQuantity) throws JsonProcessingException {
         return catalogueService.updateStock(productStockQuantity);
     }
-
 
     public ProductDto toProductDto(ProductEnriched product) {
         return ProductDto.fromDomainModel(product);
