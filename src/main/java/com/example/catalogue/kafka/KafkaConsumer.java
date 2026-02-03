@@ -26,20 +26,15 @@ public class KafkaConsumer {
 
     }
 
-
-    @KafkaListener(id = "create-product", groupId = "pricing", topics = {"create-product"})
-    public void listenCreateProduct(ProductFlatDto productFlatDto) {
-        catalogueService.createProduct(new ProductRaw(productFlatDto));
-    }
-
     @KafkaListener(id = "update-price", groupId = "pricing", topics = {"update-price"})
     public void listenUpdatePrices(List<ProductPrice> productPrices) {
         catalogueService.updatePrices(productPrices);
     };
 
-    @KafkaListener(id = "check-price", groupId = "pricing", topics = {"send-price"})
+    @KafkaListener(id = "check-price", groupId = "pricing", topics = {"send-price"}, containerFactory = "productPriceKafkaListenerContainerFactory")
     public void listenSendPrice(ProductPrice productPrice) {
-        logger.info("Received a message: ", productPrice.toString());
+    // price is received now do something with it
+        logger.info("Received a message: " + productPrice.toString());
     }
 
     @KafkaListener(id = "check-messgae", groupId = "pricing", topics = {"send-message"})
