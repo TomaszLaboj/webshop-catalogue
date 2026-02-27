@@ -21,9 +21,8 @@ public class KafkaConsumer {
     Logger logger = LoggerFactory.getLogger(LoggingController.class);
 
     @Autowired
-    public KafkaConsumer(CatalogueService catalogueService){
+    public KafkaConsumer(CatalogueService catalogueService) {
         this.catalogueService = catalogueService;
-
     }
 
     @KafkaListener(id = "update-price", groupId = "pricing", topics = {"update-price"})
@@ -34,6 +33,7 @@ public class KafkaConsumer {
     @KafkaListener(id = "check-price", groupId = "pricing", topics = {"send-price"}, containerFactory = "productPriceKafkaListenerContainerFactory")
     public void listenSendPrice(ProductPrice productPrice) {
     // price is received now do something with it
+//        catalogueService.
         logger.info("Received a message: " + productPrice.toString());
     }
 

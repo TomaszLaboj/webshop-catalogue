@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.catalogue.domain.productService.model.product.NewProductFlatDto;
 import com.example.catalogue.controller.productController.model.ProductDto;
-import com.example.catalogue.controller.productController.model.ProductFlatDto;
 import com.example.catalogue.domain.productService.model.product.ProductEnriched;
 import com.example.catalogue.domain.productService.CatalogueService;
 import com.example.catalogue.domain.productService.model.product.ProductPrice;
@@ -39,9 +39,9 @@ public class ProductController {
     };
 
     @PostMapping("/products")
-    public ProductRaw createProduct(@RequestBody ProductFlatDto productDto) {
-        ProductRaw productRaw = new ProductRaw(productDto);
-        return catalogueService.createProduct(productRaw);
+    public void createProduct(@RequestBody NewProductFlatDto newProductFlatDto) {
+
+        catalogueService.createProduct(newProductFlatDto);
     }
 
     @GetMapping(value="/products", params="id")

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.catalogue.domain.categoryService.CategoryRepository;
 import com.example.catalogue.domain.categoryService.model.category.Category;
+import com.example.catalogue.domain.productService.model.product.NewProductFlatDto;
 import com.example.catalogue.domain.productService.model.product.ProductEnriched;
 import com.example.catalogue.domain.productService.model.product.ProductPrice;
 import com.example.catalogue.domain.productService.model.product.ProductRaw;
@@ -68,7 +69,8 @@ public class CatalogueService {
         return allProducts;
     }
 
-    public ProductRaw createProduct(ProductRaw productRaw) {
+    public ProductRaw createProduct(NewProductFlatDto newProductFlatDto) {
+        kafkaProducer.createProduct(
         productRepository.save(productRaw);
         return  productRaw;
     }
@@ -89,7 +91,7 @@ public class CatalogueService {
                 )
                 .collect(Collectors.toList());
     }
-
+    //                                                              this may be incorrect?
     public ProductRaw updatePrice(ProductRaw productRaw) {
         return productRepository.save(productRaw).toRaw();
     }
